@@ -56,6 +56,7 @@ public class VoitureSAImpl implements VoitureSA {
 	@Override
 	public VoitureListDTO getListVoiture(Integer pageNo, Integer pageSize, String sortBy) {
 		Pageable paging;
+		
 		if (StringUtils.isEmpty(sortBy)) {
 			sortBy = "id";
 		}

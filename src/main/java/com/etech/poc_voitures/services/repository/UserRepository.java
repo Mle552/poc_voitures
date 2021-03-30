@@ -8,5 +8,5 @@ import com.etech.poc_voitures.data.entity.User;
 
 
 public interface UserRepository extends JpaRepository<DAOUser, Long>{
-	User findByUsername(String username);
+	DAOUser findByUsername(String username);
 }
