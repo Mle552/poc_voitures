@@ -60,7 +60,7 @@ public class VoitureSAImpl implements VoitureSA {
 		if (StringUtils.isEmpty(sortBy)) {
 			sortBy = "id";
 		}
-		paging = PageRequest.of(pageNo, pageSize, Sort.Direction.DESC);//Sort.by(sortBy).descending());
+		paging = PageRequest.of(pageNo, pageSize, Sort.by(sortBy).descending());
 		Page<Voiture> voituresPaged = voitureRepository.findAll(paging);
 		if (voituresPaged.hasContent()) {
 			return new VoitureListDTO(voitureMapper.voituresToDtos(voituresPaged.getContent()));
