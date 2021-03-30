@@ -54,7 +54,7 @@ public class CommentSAImpl implements CommentSA {
 		if (StringUtils.isEmpty(sortBy)) {
 			sortBy = "id";
 		}
-		paging = PageRequest.of(pageNo, pageSize, Sort.by(sortBy).descending());
+		paging = PageRequest.of(pageNo, pageSize,Sort.Direction.DESC);//Sort.by(sortBy).descending());
 		Page<Comment> commentsPaged = commentRepository.findCommentByVoiture(voiture.get(), paging);
 		if (commentsPaged.hasContent()) {
 			return new VoitureCommentDTO(voitureMapper.voitureToDto(voiture.get()), commentMapper.commentsToDtos(commentsPaged.getContent()));
